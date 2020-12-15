@@ -116,5 +116,9 @@
     <text name="Clear">Clear</text>
     <text name="ResetPasswordStepOneInfo">1. Enter your administrator password</text>
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
+    <text name="Other">Other</text>
+    <text name="Order">Order Now</text>
+    <text name="Success">Success</text>
+    <text name="OrderSuccessfulMessage">Your order has been placed! Leave the rest up to the chefs and our drivers!</text>
   </texts>
 </localizationDictionary>

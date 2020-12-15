@@ -1,0 +1,47 @@
+﻿<div class="main">
+  <h4 class="text-center mb-3"></h4>
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" name="searchText" [placeholder]="'SearchWithThreeDot' | localize"
+        [(ngModel)]="searchText" (keyup.enter)="search()" />
+      <div class="input-group-append">
+        <button type="button" class="btn bg-blue" (click)="search()">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" *ngFor="let result of searchResults">
+    <h4><img class="thumbnail" src="assets/img{{result.logoPath}}"
+        alt="{{result.restaurantName}}"><span>{{result.restaurantName}} - {{result.suburb}} - rated #{{result.rank}} overall</span></h4>
+    <div *ngFor="let category of result.categoryGroups">
+      <ul class="no-style">
+        <h5><strong>{{category.name}}</strong></h5>
+        <li *ngFor="let categoryMenuItem of category.menuItems;">
+          <label>
+            <input type="checkbox" value={{categoryMenuItem.id}}
+              (change)="selectionChanged(categoryMenuItem.id, $event)" />
+            <span class="menu-item">{{categoryMenuItem.name}} - {{categoryMenuItem.price | currency:'R':'symbol'}}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
+    <ul class="no-style">
+      <h5 *ngIf="result.categoryGroups.length != 0"><strong>{{ "Other" | localize}}</strong></h5>
+
+      <li *ngFor="let menuItem of result.menuItems;">
+        <label>
+          <input type="checkbox" value={{menuItem.id}} (change)="selectionChanged(menuItem.id, $event)" />
+          <span class="menu-item">{{menuItem.name}} - {{menuItem.price | currency:'R':'symbol'}}</span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-group" *ngIf="availableMenuItems.length != 0">
+    <button type="button" class="btn bg-blue" (click)="makeOrder()">
+      {{ "Order" | localize}} - {{totlalPrice | currency:'R':'symbol'}}
+    </button>
+  </div>
+</div>

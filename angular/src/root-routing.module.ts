@@ -12,6 +12,11 @@ const routes: Routes = [
         path: 'app',
         loadChildren: () => import('app/app.module').then(m => m.AppModule), // Lazy load account module
         data: { preload: true }
+    },
+    {
+        path: 'search',
+        loadChildren: () => import('search/search.module').then(m => m.SearchModule),
+        data: { preload: true }
     }
 ];
 

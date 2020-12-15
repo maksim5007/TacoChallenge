@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TacoChallenge.EntityFrameworkCore;
 
 namespace TacoChallenge.Migrations
 {
     [DbContext(typeof(TacoChallengeDbContext))]
-    partial class TacoChallengeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201130104959_Added_Restaurant_Tables")]
+    partial class Added_Restaurant_Tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
